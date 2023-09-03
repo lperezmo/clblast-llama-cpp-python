@@ -29,18 +29,18 @@ pip uninstall -y llama-cpp-python llama-cpp-python-cuda
     ```
     Edit the `IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE` to where you put OpenCL folder.
 
-4. Reinstall llama-cpp-python using the following flags.The location `C:/CLBlast` should be where you downloaded the folder CLBlast from this repo (you can put it anywhere, just make sure you pass it to the *-DCLBlast_DIR flag*)
+4. Reinstall llama-cpp-python using the following flags.The location `C:\CLBlast\lib\cmake\CLBlast` should be inside of where you downloaded the folder CLBlast from this repo (you can put it anywhere, just make sure you pass it to the *-DCLBlast_DIR flag*)
 
     * For powershell, set env variables first:
     ```
-    $env:CMAKE_ARGS="-DLLAMA_CLBLAST=on -DCLBlast_DIR=C:/CLBlast"
+    $env:CMAKE_ARGS="-DLLAMA_CLBLAST=on -DCLBlast_DIR=C:\CLBlast\lib\cmake\CLBlast"
     $env:FORCE_CMAKE=1 
     pip install llama-cpp-python --no-cache-dir
     ```
 
     * If you are installing through cmd, you can just use this instead:
     ```
-    CMAKE_ARGS="-DLLAMA_CLBLAST=on -DCLBlast_DIR=C:/CLBlast" FORCE_CMAKE=1 pip install llama-cpp-python --no-cache-dir
+    CMAKE_ARGS="-DLLAMA_CLBLAST=on -DCLBlast_DIR=C:\CLBlast\lib\cmake\CLBlast" FORCE_CMAKE=1 pip install llama-cpp-python --no-cache-dir
     ```
 
 
@@ -61,7 +61,7 @@ cd llama.cpp
 ```
 3. Create a build folder and run cmake with the following flags:
 * `-DLLAMA_CLBLAST=on` to enable CLBlast
-* `-DCLBlast_DIR=C:/CLBlast` to point to where you downloaded the folder CLBlast from this repo (you can put it anywhere, just make sure you pass it to the *-DCLBlast_DIR flag*)
+* `-DCLBlast_DIR=C:\CLBlast\lib\cmake\CLBlast` to point to where you downloaded the folder CLBlast from this repo (you can put it anywhere, just make sure you pass it to the *-DCLBlast_DIR flag*)
 ```
 mkdir build
 cd build
